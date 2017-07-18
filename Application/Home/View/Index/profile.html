@@ -1,12 +1,147 @@
 <html>
 <head>
 	<title>詳細資料</title>
+	<include file="common" />
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnSave").click(function(){
+				$.ajax({
+					url: "<?php echo U('Home/Ajax/saveProfile')?>",
+					type:"post",
+					data:$("#formProfile").serialize(),
+					success:function(result){
+						alert(result);
+					}
+				});
+			});
+		});
+	</script>
+	<link rel="stylesheet" type="text/css" href="__CSS__/index.css">
 </head>
 <body>
-	體型:
-	<select id="" name="bodyType">
-		<option></option>	
-	</select>
-	<br/>
-</body>
+
+	<include file="header" />
+
+
+	<div class="profile_div main-center" >
+		<form id="formProfile" method="post" action="home/index/profile">		
+			<div class="form-group">
+					<label for="account" class="cols-sm-2 control-label">體型:</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+						<select id="bodyType" name="bodyType">
+						    <foreach name="bodyType" item="item">
+						        <option 
+						        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+						         	value="{$item.id}">{$item.name}
+						     	</option>
+						    </foreach>	
+						</select>	
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password" class="cols-sm-2 control-label">婚姻狀況:</label>
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<select id="marriage" name="marriage">
+						    <foreach name="marriage" item="item">
+						        <option 
+						        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+						         	value="{$item.id}">{$item.name}
+						     	</option>
+						    </foreach>	
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account" class="cols-sm-2 control-label">個人習慣:</label>
+				<div class="cols-sm-10">
+					<select id="isSmoke" name="isSmoke">
+					    <foreach name="isSmoke" item="item">
+					        <option 
+					        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+					         	value="{$item.id}">{$item.name}
+					     	</option>
+					    </foreach>	
+					</select> 
+					<select id="eatingHabit" name="eatingHabit">
+					    <foreach name="eatingHabit" item="item">
+					        <option 
+					        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+					         	value="{$item.id}">{$item.name}
+					     	</option>
+					    </foreach>	
+					</select>
+					<select id="sleepHabit" name="sleepHabit">
+					    <foreach name="sleepHabit" item="item">
+					        <option 
+					        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+					         	value="{$item.id}">{$item.name}
+					     	</option>
+					    </foreach>	
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password" class="cols-sm-2 control-label">個性:</label>
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<foreach name="personality" item="item">
+							<if condition="($item['i'] % 5 eq 0) ">
+								<br/>
+							</if>
+							<input type="checkbox"
+								   <if condition="$item['checked'] eq 1">checked="checked"</if> 
+								   name="personality[]" value="{$item.id}" /> {$item.name}
+						</foreach>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account" class="cols-sm-2 control-label">教育程度:</label>
+				<div class="cols-sm-10">
+					<select id="education" name="education">
+					    <foreach name="education" item="item">
+					        <option 
+					        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+					        	value="{$item.id}">{$item.name}</option>
+					    </foreach>	
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="password" class="cols-sm-2 control-label">當前職業:</label>
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<select id="ocupation" name="ocupation">
+						    <foreach name="ocupation" item="item">
+						        <option 
+						        	<if condition="$item['checked'] eq 1">selected="selected"</if>
+						        	value="{$item.id}">{$item.name}</option>
+						    </foreach>	
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+					<label for="account" class="cols-sm-2 control-label">聯繫方式:</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+						<input type="text" name="contact" placeHolder="如填寫郵件,建議不要寫註冊郵箱" value='{$contact}'>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="button" id="btnSave" value="保存" />
+		     </div>
+		</form>
+			
+	</div>
+	
+	</body>
 </html>

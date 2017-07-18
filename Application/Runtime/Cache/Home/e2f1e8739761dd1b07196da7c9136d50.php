@@ -1,9 +1,8 @@
 <?php if (!defined('THINK_PATH')) exit();?><html>
 <head>
 	<title>註冊百度帳號</title>
-
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/2017/baiduLogin/Public/Home/js/common.js"></script>
+<script type="text/javascript" src="/2017/baiduLogin/Public/Home/js/common.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){

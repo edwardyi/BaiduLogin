@@ -2,10 +2,10 @@
 -- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- 主机: 127.0.0.1
--- 生成日期: 2017 年 07 月 18 日 12:38
--- 服务器版本: 5.5.27
--- PHP 版本: 5.4.7
+-- Host: 127.0.0.1
+-- Generation Time: Jul 18, 2017 at 09:18 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `baidulogin`
+-- Database: `baidulogin`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `habittype`
+-- Table structure for table `habittype`
 --
 
 CREATE TABLE IF NOT EXISTS `habittype` (
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `habittype` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
 
 --
--- 转存表中的数据 `habittype`
+-- Dumping data for table `habittype`
 --
 
 INSERT INTO `habittype` (`id`, `type`, `name_en`, `name`) VALUES
@@ -101,64 +101,6 @@ INSERT INTO `habittype` (`id`, `type`, `name_en`, `name`) VALUES
 (60, 'ocupation', 'sales', '營銷'),
 (61, 'ocupation', 'art', '藝術'),
 (62, 'ocupation', 'other', '其他');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `member`
---
-
-CREATE TABLE IF NOT EXISTS `member` (
-  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '會員編號',
-  `account` varchar(200) NOT NULL COMMENT '會員帳號',
-  `telephone` varchar(100) NOT NULL COMMENT '手機號',
-  `email` varchar(200) NOT NULL COMMENT '郵箱',
-  `pwd` varchar(32) NOT NULL COMMENT '會員密碼',
-  `profile_id` int(100) DEFAULT NULL COMMENT '會員信息編號',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
-
---
--- 转存表中的数据 `member`
---
-
-INSERT INTO `member` (`id`, `account`, `telephone`, `email`, `pwd`, `profile_id`) VALUES
-(1, 'test', '12345', '', 'e10adc3949ba59abbe56e057f20f883e', 14),
-(19, 'qqqq', '2222', '', '', NULL);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `profile`
---
-
-CREATE TABLE IF NOT EXISTS `profile` (
-  `id` int(100) NOT NULL AUTO_INCREMENT COMMENT '個人信息編號',
-  `bodyType` int(10) NOT NULL COMMENT '體型',
-  `mariageType` int(10) NOT NULL COMMENT '婚姻狀態',
-  `smokeHabit` tinyint(10) NOT NULL DEFAULT '-1' COMMENT '抽菸習慣',
-  `foodHabit` tinyint(10) NOT NULL DEFAULT '-1' COMMENT '飲酒習慣',
-  `sleepHabit` tinyint(10) NOT NULL DEFAULT '-1' COMMENT '睡眠習慣',
-  `personalitySet` varchar(100) NOT NULL DEFAULT '' COMMENT '複選個性',
-  `education` int(10) NOT NULL COMMENT '教育程度',
-  `ocupation` int(10) NOT NULL COMMENT '當前職業',
-  `contact` varchar(255) NOT NULL COMMENT '聯繫方式',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
---
--- 转存表中的数据 `profile`
---
-
-INSERT INTO `profile` (`id`, `bodyType`, `mariageType`, `smokeHabit`, `foodHabit`, `sleepHabit`, `personalitySet`, `education`, `ocupation`, `contact`) VALUES
-(7, 5, 15, 0, 0, 0, '', 35, 0, ''),
-(8, 5, 15, 0, 0, 0, '25,29,30,31', 35, 0, ''),
-(9, 5, 15, 0, 20, 0, '25,29,30,31', 35, 0, ''),
-(10, 5, 15, 0, 20, 0, '25,29,30,31', 35, 43, ''),
-(11, 5, 15, 0, 20, 0, '25,29,30,31', 35, 43, ''),
-(12, 5, 15, 0, 20, 0, '25,29,30,31', 35, 43, ''),
-(13, 5, 15, 0, 20, 0, '25,29,30,31', 35, 43, ''),
-(14, 4, 15, 0, 20, 0, '29,30,31', 35, 52, '4546445');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,13 +1,22 @@
 <?php
 return array(
-	'MODULE_ALLOW_LIST'    =>    array('Home'),
+	'MODULE_ALLOW_LIST'    =>    array('Home','Ajax'),
     'DEFAULT_MODULE'     => 'Home', //默认模块
     'DEFAULT_CONTROLLER'    =>  'Index', // 默认控制器名称
     'DEFAULT_ACTION'        =>  'index', // 默认操作名称
+    'URL_MODEL'=>2,
     'URL_ROUTER_ON' => true,
     'URL_ROUTE_RULES' => array(
         'index'=>array("Home/Index/index"),
         'register'=>array("Home/Index/register"),
+        'profile'=>array("Home/Index/profile"),
+        'login'=>array("Home/Ajax/login"),
+    ),
+    'URL_MAP_RULES'=>array(
+        'index'=>array("Home/Index/index"),
+        'register'=>array("Home/Index/register"),
+        'profile'=>array("Home/Index/profile"),
+        'login'=>array("Home/Ajax/login"),
     ),
 
         /* 模板相关配置 */

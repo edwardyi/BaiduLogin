@@ -1,14 +1,66 @@
 <html>
 <head>
 	<title>登入百度帳號</title>
+	<include file="common" />
 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnLogin").click(function(){
+				//form submit
+				
+				let objMsg = $("#msg");
+				$.ajax({
+					url: "<?php echo U('Home/Ajax/login')?>",
+					type:"post",
+					data:$("#loginForm").serialize(),
+					success:function(result){
+						objMsg.show().html(result);
+					}
+				});
+				// $("#formRegister").submit();
+
+
+			});
+			
+		});
+	</script>
+	<link rel="stylesheet" type="text/css" href="__CSS__/index.css">
+	
 </head>
 <body>
-	<form method="post" action="">
-		<input type="text" name="account" value="" placeHolder="手機/郵箱/用戶名"> <br/>
-		<input type="password" name="password" value="" placeHolder="密碼"> <br/>
-		<input type="button" name="btnLogin" value="登入"> <br/>
-		<a href="Home/Index/register.html" >立即註冊</a>
-	</form>
+	<div class="container">
+		<div class="row main">
+			<div class="main-login main-center">
+					<form id="loginForm" method="post" action="home/index/profile">
+						<span id="msg" style="display:none;color:red;">{$strMsg}</span> 
+						<div class="form-group">
+							<!-- <label for="account" class="cols-sm-2 control-label">用戶名</label> -->
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+								<input type="text" id="account" name="account" value="" placeHolder="手機/郵箱/用戶名" hintMsg="請設置手機/郵箱/用戶名"> 
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<!-- <label for="password" class="cols-sm-2 control-label">密碼</label> -->
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+								<input type="password" id="password" name="password" value="" placeHolder="密碼" hintMsg="請設置密碼"> <br/>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<input type="button" id="btnLogin" name="btnLogin" value="登入"> <br/>
+						<a href="register" >立即註冊</a>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>		
 </body>
 </html>
